@@ -45,10 +45,16 @@ public class RobotControllerScript : MonoBehaviour {
 
     private void Update()
     {
-        if(Isgrounded && Input.GetKeyDown(KeyCode.Space))
+        Jump();
+    }
+
+    private void Jump()
+    {
+        if (Isgrounded && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("Ground", false);
             rigidbody2D.AddForce(new Vector2(0, jumpForce));
+            anim.SetTrigger("Jump");
         }
     }
 
